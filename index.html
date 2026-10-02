@@ -4,208 +4,512 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tidiane Touré | Mathématiques appliquées & Data Analysis</title>
+  <title>Tidiane Touré | Mathématiques appliquées</title>
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
       background: #f5f7fa;
-      color: #1f2937;
-      line-height: 1.6;
+      color: #172033;
+      line-height: 1.7;
     }
 
     header {
-      background: #123b5d;
+      background: linear-gradient(135deg, #071d35, #0d4f5c);
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px 90px;
       text-align: center;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 38px;
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    header h2 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: #bce7e4;
+      margin-bottom: 25px;
     }
 
     header p {
-      font-size: 20px;
-      margin-top: 10px;
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.05rem;
+      color: #e6f2f3;
     }
 
     nav {
-      background: white;
-      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #071d35;
+      padding: 14px 10px;
       text-align: center;
-      border-bottom: 1px solid #ddd;
     }
 
     nav a {
-      color: #123b5d;
+      color: white;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
+      margin: 0 12px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #72d6cf;
     }
 
     section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 1050px;
+      margin: auto;
+      padding: 70px 20px;
     }
 
-    h2 {
-      color: #123b5d;
-      border-bottom: 2px solid #123b5d;
-      padding-bottom: 8px;
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #0b3b52;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #687386;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
     }
 
     .card {
       background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      color: #0b5962;
+      margin-bottom: 15px;
+    }
+
+    .timeline {
+      border-left: 3px solid #1d8b8b;
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      background: white;
       padding: 25px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 14px;
+      margin-bottom: 25px;
+      box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+    }
+
+    .timeline-item h3 {
+      color: #0b3b52;
+      margin-bottom: 7px;
+    }
+
+    .date {
+      color: #168080;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      justify-content: center;
     }
 
     .skill {
-      background: #e5eef5;
-      padding: 8px 14px;
+      background: #e2f2f1;
+      color: #07575c;
+      padding: 10px 17px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .project h3 {
+      color: #0b5962;
+      margin-bottom: 12px;
+    }
+
+    .project .tag {
+      display: inline-block;
+      background: #edf4f7;
+      color: #31566b;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      margin: 4px 3px 12px 0;
+    }
+
+    .future {
+      background: linear-gradient(135deg, #0b344d, #0c6669);
+      color: white;
       border-radius: 20px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .future h2 {
+      margin-bottom: 18px;
+    }
+
+    .future p {
+      max-width: 760px;
+      margin: auto;
+      color: #e3f5f5;
     }
 
     footer {
-      background: #123b5d;
-      color: white;
+      background: #071d35;
+      color: #b9c7d4;
       text-align: center;
-      padding: 25px;
-      margin-top: 50px;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 750px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+
+      header h2 {
+        font-size: 1.1rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 7px;
+      }
+
+      .about,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 17px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
+  <!-- ACCUEIL -->
+  <header id="accueil">
     <h1>Tidiane Touré</h1>
-    <p>Mathématiques appliquées | Analyse de données</p>
-    <p>Objectif professionnel : Data Analyst</p>
+    <h2>Mathématiques appliquées</h2>
+
+    <p>
+      Titulaire d’une Licence en mathématiques appliquées, ma formation couvre
+      différents domaines des mathématiques ainsi que la statistique, la
+      probabilité, la modélisation, l’analyse des données et l’informatique.
+      Certains de ces enseignements et mes travaux académiques ont progressivement
+      renforcé mon intérêt pour l’analyse des données et orientent aujourd’hui
+      mon projet professionnel vers le métier de Data Analyst.
+    </p>
   </header>
 
+  <!-- NAVIGATION -->
   <nav>
-    <a href="#about">À propos</a>
-    <a href="#skills">Compétences</a>
-    <a href="#education">Parcours</a>
-    <a href="#projects">Projets</a>
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#formation">Formation</a>
+    <a href="#competences">Compétences</a>
+    <a href="#projets">Travaux</a>
+    <a href="#projet-pro">Projet professionnel</a>
   </nav>
 
-  <section id="about">
-    <h2>À propos</h2>
+  <!-- À PROPOS -->
+  <section id="apropos">
 
-    <div class="card">
-      <p>
-        Je suis titulaire d'une Licence en Mathématiques appliquées
-        de l'Université Gamal Abdel Nasser de Conakry (UGANC).
-      </p>
-
-      <p>
-        Mon parcours m'a permis de développer des bases solides en
-        statistique, probabilité, régression, analyse des données
-        et méthodes numériques.
-      </p>
-
-      <p>
-        Je souhaite poursuivre ma formation dans le domaine des
-        mathématiques appliquées et développer progressivement
-        mes compétences pour devenir Data Analyst.
-      </p>
+    <div class="section-title">
+      <h2>À propos</h2>
+      <p>Un parcours construit autour des mathématiques appliquées</p>
     </div>
-  </section>
 
-  <section id="skills">
-    <h2>Compétences</h2>
+    <div class="about">
 
-    <div class="card">
-      <div class="skills">
-        <span class="skill">Statistique</span>
-        <span class="skill">Probabilité</span>
-        <span class="skill">Analyse des données</span>
-        <span class="skill">Régression linéaire</span>
-        <span class="skill">Analyse mathématique</span>
-        <span class="skill">Calcul numérique</span>
-        <span class="skill">Excel</span>
-        <span class="skill">SPSS</span>
-        <span class="skill">KoboToolbox</span>
-        <span class="skill">HTML5</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
+      <div class="card">
+        <h3>Mon parcours</h3>
+
+        <p>
+          Ma formation universitaire en mathématiques appliquées m’a permis
+          d’étudier plusieurs domaines des mathématiques, tout en développant
+          des connaissances en statistique, probabilité, modélisation,
+          analyse des données et informatique.
+        </p>
+
+        <br>
+
+        <p>
+          Cette diversité constitue aujourd’hui la base de mon parcours et
+          me permet d’aborder progressivement l’analyse des données avec
+          une approche quantitative et mathématique.
+        </p>
       </div>
+
+      <div class="card">
+        <h3>Mon intérêt pour les données</h3>
+
+        <p>
+          Au cours de ma formation, certains enseignements liés à la statistique,
+          aux modèles linéaires et à l’analyse des données ont particulièrement
+          retenu mon attention.
+        </p>
+
+        <br>
+
+        <p>
+          Un projet académique réalisé autour de l’analyse régressionnelle
+          m’a également permis de mettre en pratique plusieurs étapes d’un
+          travail sur les données : collecte, préparation, analyse et
+          interprétation des résultats.
+        </p>
+      </div>
+
     </div>
   </section>
 
-  <section id="education">
-    <h2>Parcours académique</h2>
+  <!-- FORMATION -->
+  <section id="formation">
 
-    <div class="card">
-      <h3>Licence en Mathématiques appliquées</h3>
+    <div class="section-title">
+      <h2>Formation</h2>
+      <p>Un parcours académique progressivement construit</p>
+    </div>
 
-      <p>
-        <strong>Université Gamal Abdel Nasser de Conakry (UGANC)</strong>
-      </p>
+    <div class="timeline">
 
-      <p>2023 – 2026</p>
+      <div class="timeline-item">
+        <div class="date">2023 – 2026</div>
 
-      <p>
-        Formation en mathématiques appliquées avec des enseignements
-        en statistique, probabilité, analyse des données, régression,
-        optimisation, informatique et calcul numérique.
-      </p>
+        <h3>Licence en Mathématiques appliquées</h3>
+
+        <p>
+          <strong>Université Gamal Abdel Nasser de Conakry (UGANC)</strong>
+        </p>
+
+        <p>
+          Formation de 180 crédits couvrant plusieurs domaines des
+          mathématiques ainsi que la statistique, la probabilité,
+          la modélisation, l’analyse des données et l’informatique.
+        </p>
+
+        <br>
+
+        <p>
+          <strong>L1 — 2023–2024 :</strong>
+          60/60 crédits · Moyenne cumulative : 2,60/4 · Mention Assez Bien
+        </p>
+
+        <p>
+          <strong>L2 — 2024–2025 :</strong>
+          60/60 crédits · Moyenne cumulative : 3,20/4 · Mention Bien
+        </p>
+
+        <p>
+          <strong>L3 — 2025–2026 :</strong>
+          60/60 crédits · Moyenne cumulative : 3,00/4 · Mention Bien
+        </p>
+
+        <br>
+
+        <p>
+          <strong>180/180 crédits validés</strong>
+        </p>
+
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">Avant 2023</div>
+
+        <h3>Baccalauréat – Sciences mathématiques</h3>
+
+        <p>
+          <strong>Lycée EMAK Tombolia</strong>
+        </p>
+
+        <p>
+          Baccalauréat unique en Sciences mathématiques.
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Mention : Assez Bien</strong>
+        </p>
+
+      </div>
+
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projets</h2>
+  <!-- COMPÉTENCES / DOMAINES -->
+  <section id="competences">
 
-    <div class="card">
-      <h3>Projet d'analyse régressionnelle</h3>
-
-      <p><strong>UGANC — Février 2026</strong></p>
-
-      <p>
-        Conception et déploiement d'une enquête avec KoboToolbox
-        auprès d'étudiants en Chimie.
-      </p>
-
-      <p>
-        Les données ont ensuite été exportées et nettoyées dans Excel,
-        puis analysées avec SPSS à l'aide de l'ANOVA et de la
-        régression linéaire.
-      </p>
-
-      <p>
-        Le travail s'est terminé par l'interprétation des résultats
-        statistiques.
-      </p>
+    <div class="section-title">
+      <h2>Domaines étudiés et compétences</h2>
+      <p>Des bases construites au cours de la formation</p>
     </div>
 
-    <div class="card">
-      <h3>Projets futurs</h3>
+    <div class="skills">
 
-      <p>
-        Cette section sera progressivement enrichie avec de nouveaux
-        projets en statistique, analyse de données, programmation et
-        visualisation.
-      </p>
+      <span class="skill">Mathématiques appliquées</span>
+      <span class="skill">Statistique</span>
+      <span class="skill">Probabilité</span>
+      <span class="skill">Analyse des données</span>
+      <span class="skill">Modèles linéaires</span>
+      <span class="skill">Analyse fonctionnelle</span>
+      <span class="skill">Algèbre linéaire</span>
+      <span class="skill">Géométrie</span>
+      <span class="skill">Calcul numérique</span>
+      <span class="skill">Optimisation</span>
+      <span class="skill">Analyse</span>
+      <span class="skill">Informatique</span>
+      <span class="skill">Excel</span>
+      <span class="skill">HTML5 / CSS / JavaScript</span>
+
     </div>
   </section>
 
+  <!-- TRAVAUX ACADÉMIQUES -->
+  <section id="projets">
+
+    <div class="section-title">
+      <h2>Travaux académiques</h2>
+      <p>Quelques travaux illustrant mon parcours</p>
+    </div>
+
+    <div class="projects">
+
+      <div class="project">
+
+        <h3>Projet d’analyse régressionnelle</h3>
+
+        <span class="tag">Projet académique</span>
+        <span class="tag">Statistique</span>
+        <span class="tag">Régression</span>
+
+        <p>
+          Projet réalisé à l’UGANC autour d’une enquête menée auprès
+          d’étudiants en Chimie.
+        </p>
+
+        <br>
+
+        <p>
+          Le travail comprenait la conception et la collecte des données
+          avec KoboToolbox, leur préparation avec Excel, puis l’analyse
+          statistique avec SPSS, notamment à travers l’ANOVA et la
+          régression linéaire.
+        </p>
+
+        <br>
+
+        <p>
+          Les résultats ont ensuite été interprétés dans le cadre du projet.
+        </p>
+
+      </div>
+
+      <div class="project">
+
+        <h3>Travaux de mathématiques appliquées</h3>
+
+        <span class="tag">Université</span>
+        <span class="tag">Mathématiques</span>
+        <span class="tag">Applications</span>
+
+        <p>
+          Ma formation comprend également différents travaux, exercices,
+          études et applications réalisés dans plusieurs domaines des
+          mathématiques appliquées.
+        </p>
+
+        <br>
+
+        <p>
+          Cette partie du portfolio pourra être complétée progressivement
+          avec des documents, exercices, graphiques et projets sélectionnés
+          au cours de mon parcours universitaire.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJET PROFESSIONNEL -->
+  <section id="projet-pro">
+
+    <div class="future">
+
+      <h2>Projet professionnel</h2>
+
+      <p>
+        Mon objectif est de poursuivre progressivement ma formation afin
+        d’approfondir mes connaissances en statistique, modélisation,
+        informatique et analyse des données.
+      </p>
+
+      <br>
+
+      <p>
+        Cette évolution s’inscrit dans un projet professionnel à plus long
+        terme : m’orienter vers le métier de <strong>Data Analyst</strong>,
+        en m’appuyant sur les bases solides acquises en mathématiques
+        appliquées.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PIED DE PAGE -->
   <footer>
-    <p>© 2026 Tidiane Touré</p>
-    <p>Mathématiques appliquées | Analyse de données</p>
+
+    <p>
+      © 2026 Tidiane Touré — Portfolio académique
+    </p>
+
+    <p>
+      Mathématiques appliquées · Statistique · Analyse des données
+    </p>
+
   </footer>
 
 </body>
